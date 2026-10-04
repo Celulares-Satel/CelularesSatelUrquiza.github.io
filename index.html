@@ -280,6 +280,57 @@ footer ul a:hover{transform:translateX(5px)}
 .det-lista a{color:var(--rojo);font-weight:700}
 @media (max-width:760px){.det{grid-template-columns:1fr}.det-info h1{font-size:1.4rem}}
 
+
+/* Anti-bots */
+.anti{border:2px solid #e3e3e3;border-radius:10px;padding:12px 14px;background:#fff;display:grid;gap:10px;transition:border-color .25s,box-shadow .25s}
+.anti:focus-within{border-color:var(--rojo);box-shadow:0 0 0 3px var(--rojo-claro)}
+.anti-t{font-size:.9rem;color:var(--gris);font-weight:700}
+.anti-fila{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.anti canvas{border-radius:8px;border:1px solid #f3c4c6;max-width:100%}
+.anti canvas.nuevo{animation:a-pop .4s}
+.anti-sig{font-size:1.4rem}
+.reg .anti-fila input[type=text]{width:90px;text-align:center;font-weight:800;font-size:1.15rem}
+.anti-ref{border:0;background:var(--rojo-claro);color:var(--rojo);font-size:1.3rem;font-weight:800;width:40px;height:40px;border-radius:50%;cursor:pointer;transition:background .2s,color .2s}
+.anti-ref:hover{background:var(--rojo);color:#fff}
+.anti-ref.gira{animation:a-girar .5s}
+@keyframes a-girar{to{transform:rotate(360deg)}}
+.anti-hp{position:absolute!important;left:-9999px!important;width:1px!important;height:1px!important;opacity:0!important;pointer-events:none}
+
+
+/* Puerta de entrada (verificación) y notificación de bienvenida */
+@keyframes a-fundido-sale{to{opacity:0}}
+.gate{position:fixed;inset:0;z-index:300;display:grid;place-items:center;background:rgba(29,29,31,.78);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);animation:a-fundido .3s}
+.gate.sale{animation:a-fundido-sale .4s forwards}
+.gate-card{background:#fff;border-radius:16px;padding:26px 24px;width:min(92vw,400px);text-align:center;box-shadow:0 24px 60px rgba(0,0,0,.35);animation:a-pop .5s}
+.gate-card img{height:64px;width:auto;margin:0 auto 10px;display:block}
+.gate-card h2{font-size:1.2rem;margin-bottom:4px}
+.gate-card p{color:var(--gris);margin-bottom:16px;font-size:.95rem}
+.gate-card p.gate-msg{color:var(--rojo-oscuro);font-weight:700;margin:12px 0 0}
+.gate-chk{display:flex;align-items:center;gap:14px;width:100%;border:2px solid #d5d5d5;background:#f8f8f8;border-radius:10px;padding:14px 16px;font:inherit;font-weight:700;cursor:pointer;text-align:left;transition:border-color .2s,background .2s}
+.gate-chk:hover{border-color:var(--rojo)}
+.gate-caja{width:28px;height:28px;border:3px solid #9a9a9a;border-radius:6px;display:grid;place-items:center;flex:none;transition:background .25s,border-color .25s,border-radius .25s}
+.gate-chk.cargando .gate-caja{border-color:var(--rojo);border-top-color:transparent;border-radius:50%;animation:a-girar .8s linear infinite}
+.gate-chk.listo{border-color:#2e9d4f;background:#effaf2}
+.gate-chk.listo .gate-caja{background:#2e9d4f;border-color:#2e9d4f}
+.gate-chk.listo .gate-caja::after{content:"\2713";color:#fff;font-weight:800;animation:a-pop .35s both}
+.gate .anti{text-align:left;margin-top:12px}
+.gate .anti-fila input[type=text]{width:90px;text-align:center;font:inherit;font-weight:800;font-size:1.15rem;padding:10px;border:2px solid #cfcfcf;border-radius:8px}
+.toast{position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:200;width:min(94vw,460px);background:#fff;border:2px solid var(--rojo);border-radius:14px;box-shadow:0 16px 40px rgba(0,0,0,.25);display:flex;gap:12px;align-items:flex-start;padding:14px 16px 18px;overflow:hidden;animation:a-toast .55s cubic-bezier(.2,.9,.3,1.2) both}
+@keyframes a-toast{from{opacity:0;transform:translate(-50%,-140%)}to{opacity:1;transform:translate(-50%,0)}}
+@keyframes a-toast-sale{to{opacity:0;transform:translate(-50%,-140%)}}
+.toast.sale{animation:a-toast-sale .4s ease both}
+.toast-ico{font-size:1.8rem;display:inline-block;animation:a-saludo 1.2s .5s ease-in-out 2}
+@keyframes a-saludo{0%,100%{transform:rotate(0)}25%{transform:rotate(18deg)}75%{transform:rotate(-14deg)}}
+.toast-tx{flex:1;min-width:0}
+.toast-tx b{display:block;font-size:1.05rem;color:var(--rojo)}
+.toast-tx p{font-size:.92rem;color:var(--gris)}
+.toast-tx a,.toast-link{color:var(--rojo);font-weight:700;text-decoration:underline;background:none;border:0;font:inherit;font-weight:700;cursor:pointer;padding:0}
+.toast-x{border:0;background:none;font-size:1.5rem;line-height:1;cursor:pointer;color:var(--gris);transition:color .2s,transform .2s}
+.toast-x:hover{color:var(--rojo);transform:rotate(90deg)}
+.toast-barra{position:absolute;left:0;bottom:0;height:4px;width:100%;background:var(--rojo);transform-origin:left;animation:a-barra 7s linear forwards}
+@keyframes a-barra{to{transform:scaleX(0)}}
+.toast:hover .toast-barra{animation-play-state:paused}
+
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{animation:none!important;transition:none!important}
@@ -606,6 +657,49 @@ OT('TV Stick 4K Ultra HD (Android TV) Pack Fútbol','Otros/TvStick%201-228x228.j
 };
 
 
+// ===== Anti-bots: captcha propio, trampa invisible, tiempo mínimo y límite de intentos =====
+function antiBot(fm,id,libre){
+  var box=document.getElementById(id),t0=Date.now(),resp=0;
+  box.innerHTML='<p class="anti-t">Verificación anti-robots: ¿cuánto es?</p>'
+    +'<div class="anti-fila"><canvas width="150" height="46" role="img" aria-label="Cuenta de verificación"></canvas><b class="anti-sig">=</b>'
+    +'<input type="text" inputmode="numeric" autocomplete="off" maxlength="3" aria-label="Resultado de la cuenta" placeholder="?">'
+    +'<button type="button" class="anti-ref" aria-label="Probar con otra cuenta" title="Otra cuenta">↻</button></div>'
+    +'<input type="text" name="website_url" class="anti-hp" tabindex="-1" autocomplete="off" aria-hidden="true">';
+  var cv=box.querySelector('canvas'),inp=box.querySelector('.anti-fila input'),ref=box.querySelector('.anti-ref'),hp=box.querySelector('.anti-hp');
+  function dibujar(){
+    var a=2+Math.floor(Math.random()*8),b=2+Math.floor(Math.random()*8),suma=Math.random()<.6,g=cv.getContext('2d'),i;
+    resp=suma?a+b:a*b;
+    g.clearRect(0,0,150,46);g.fillStyle='#fdecec';g.fillRect(0,0,150,46);
+    for(i=0;i<6;i++){g.strokeStyle='rgba(215,25,31,'+(.15+Math.random()*.3)+')';g.beginPath();g.moveTo(Math.random()*150,Math.random()*46);g.bezierCurveTo(Math.random()*150,Math.random()*46,Math.random()*150,Math.random()*46,Math.random()*150,Math.random()*46);g.stroke()}
+    var txt=a+(suma?' + ':' × ')+b,x=14;
+    for(i=0;i<txt.length;i++){
+      var ch=txt.charAt(i);g.save();g.translate(x,31+Math.random()*6-3);g.rotate((Math.random()-.5)*.5);
+      g.font='bold '+(24+Math.floor(Math.random()*6))+'px system-ui,Arial';g.fillStyle='#1D1D1F';g.fillText(ch===' '?'':ch,0,0);g.restore();x+=ch===' '?9:20;
+    }
+    for(i=0;i<40;i++){g.fillStyle='rgba(29,29,31,'+Math.random()*.4+')';g.fillRect(Math.random()*150,Math.random()*46,2,2)}
+    inp.value='';cv.classList.remove('nuevo');void cv.offsetWidth;cv.classList.add('nuevo');
+  }
+  function sac(){box.classList.remove('sacudir');void box.offsetWidth;box.classList.add('sacudir')}
+  function limite(){
+    var K='satel_envios',n=Date.now(),a=[];
+    try{a=JSON.parse(localStorage.getItem(K)||'[]').filter(function(t){return n-t<120000})}catch(x){}
+    if(a.length>=5)return Math.ceil((120000-(n-a[0]))/1000);
+    a.push(n);try{localStorage.setItem(K,JSON.stringify(a))}catch(x){}
+    return 0;
+  }
+  ref.addEventListener('click',function(){ref.classList.remove('gira');void ref.offsetWidth;ref.classList.add('gira');dibujar()});
+  inp.addEventListener('input',function(){inp.value=inp.value.replace(/\D/g,'')});
+  dibujar();
+  return {check:function(e){
+    if((e&&e.isTrusted===false)||hp.value)return 'No pudimos verificar que seas una persona.';
+    if(Date.now()-t0<2000)return 'Esperá un segundo y volvé a intentar.';
+    if(inp.value===''||parseInt(inp.value,10)!==resp){dibujar();sac();inp.focus();return 'La cuenta de verificación no es correcta. Probá con la nueva.'}
+    var w=libre?0:limite();if(w>0){sac();return 'Hiciste demasiados intentos seguidos. Esperá '+w+' segundos y volvé a probar.'}
+    hp.disabled=true;setTimeout(function(){hp.disabled=false;dibujar()},1500);
+    return null;
+  }};
+}
+
 // ===== Páginas de información =====
 var WA='https://wa.me/5491127702147?text=Estoy%20interesado%20en%20sus%20productos';
 var WA2='https://api.whatsapp.com/send?phone=541126919440&text=Estoy%20interesado%20en%20sus%20productos';
@@ -624,12 +718,13 @@ function info(slug,home,pg){
     +'<label class="cmp">Correo electrónico<input type="email" name="email" id="iMail" autocomplete="email"></label>'
     +'<label class="cmp">Contraseña<input type="password" name="password" id="iPass" autocomplete="current-password"></label>'
     +'<label class="chk"><input type="checkbox" id="iVer"><span>Mostrar contraseña</span></label>'
+    +'<div class="anti" id="aIng"></div>'
     +'<p id="iErr" style="color:var(--rojo-oscuro);font-weight:700" role="alert"></p>'
     +'<button class="carro" type="submit" id="iBtn">Ingresar</button></form>'
     +'<div id="iListo"></div>'
     +'<p class="aparte"><a href="https://celulares-satel.com.ar/olvidada" target="_blank" rel="noopener">¿Olvidaste tu contraseña?</a><br>¿Todavía no tenés cuenta? <a href="#/registro">Registrate acá</a>.</p>';
     pg.appendChild(box);
-    var iM=document.getElementById('iMail'),iP=document.getElementById('iPass'),iE=document.getElementById('iErr');
+    var iM=document.getElementById('iMail'),iP=document.getElementById('iPass'),iE=document.getElementById('iErr'),AB=antiBot(document.getElementById('formIng'),'aIng');
     function iOk(i){
       var v=i.value.trim(),ok=i===iM?/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v):i.value!=='';
       i.parentNode.classList.toggle('v-ok',v!==''&&ok);return ok;
@@ -646,8 +741,9 @@ function info(slug,home,pg){
         e.preventDefault();iE.textContent=!iM.value.trim()||!iP.value?'Completá tu correo y tu contraseña.':'El correo no parece válido.';
         malos.forEach(function(i){iSac(i.parentNode)});malos[0].focus();return;
       }
+      var ab=AB.check(e);if(ab){e.preventDefault();iE.textContent=ab;return}
       iE.textContent='';
-      var b=document.getElementById('iBtn');b.textContent='Ingresando…';b.classList.add('enviando');
+      guardarUsuario(null,iM.value.trim());var b=document.getElementById('iBtn');b.textContent='Ingresando…';b.classList.add('enviando');
       setTimeout(function(){b.textContent='Ingresar';b.classList.remove('enviando')},5000);
       var r=document.getElementById('iListo');r.textContent='';
       var ok=el('div','ok');
@@ -669,6 +765,7 @@ function info(slug,home,pg){
     +'<div class="fuerza" id="rFuerza" aria-hidden="true"><i></i></div>'
     +'<label class="chk"><input type="checkbox" name="newsletter" value="1" id="rNews"><span>Quiero recibir novedades y ofertas.</span></label>'
     +'<label class="chk" id="rAgreeL"><input type="checkbox" name="agree" value="1" id="rAgree"><span>Leí y acepto los <a href="http://celulares-satel.com.ar/terminosycondiciones" target="_blank" rel="noopener">Términos y Condiciones</a>.</span></label>'
+    +'<div class="anti" id="aReg"></div>'
     +'<p id="rErr" style="color:var(--rojo-oscuro);font-weight:700" role="alert"></p>'
     +'<button class="carro" type="submit" id="rBtn">Crear mi cuenta</button></form>'
     +'<div id="rListo"></div>'
@@ -702,7 +799,7 @@ function info(slug,home,pg){
       });
       i.addEventListener('blur',function(){if(val(id)!=='')marca(id,true)});
     });
-    var fm=document.getElementById('formReg'),err=document.getElementById('rErr');
+    var fm=document.getElementById('formReg'),err=document.getElementById('rErr'),AB=antiBot(fm,'aReg');
     fm.addEventListener('submit',function(e){
       var malos=Object.keys(V).filter(function(id){return !marca(id,true)});
       if(malos.length){
@@ -714,8 +811,9 @@ function info(slug,home,pg){
       if(!document.getElementById('rAgree').checked){
         e.preventDefault();err.textContent='Tenés que aceptar los Términos y Condiciones.';sacudir(document.getElementById('rAgreeL'));return;
       }
+      var ab=AB.check(e);if(ab){e.preventDefault();err.textContent=ab;return}
       err.textContent='';
-      var btn=document.getElementById('rBtn');btn.textContent='Creando tu cuenta…';btn.classList.add('enviando');
+      guardarUsuario(val('rNom'),val('rMail'));var btn=document.getElementById('rBtn');btn.textContent='Creando tu cuenta…';btn.classList.add('enviando');
       setTimeout(function(){btn.textContent='Crear mi cuenta';btn.classList.remove('enviando')},5000);
       var r=document.getElementById('rListo');r.textContent='';
       var ok=el('div','ok');
@@ -988,6 +1086,85 @@ document.getElementById('anio').textContent=new Date().getFullYear();
   tipear();
 })();
 document.querySelector('#menuCuenta .menu').addEventListener('click',function(){document.getElementById('menuCuenta').open=false});
+
+// ===== Entrada al sitio: verificación humana + bienvenida =====
+function lsGet(k){try{return localStorage.getItem(k)}catch(e){return null}}
+function lsSet(k,v){try{if(v===null)localStorage.removeItem(k);else localStorage.setItem(k,v)}catch(e){}}
+function usuarioGuardado(){try{return JSON.parse(lsGet('satel_usuario')||'null')}catch(e){return null}}
+function guardarUsuario(n,e){
+  if(!e)return;
+  if(!n){
+    var u=usuarioGuardado();
+    if(u&&u.e&&u.e.toLowerCase()===e.toLowerCase())n=u.n;
+    else{var m=e.split('@')[0].match(/[A-Za-zÁÉÍÓÚÑáéíóúñ]+/);n=m?m[0].charAt(0).toUpperCase()+m[0].slice(1).toLowerCase():'Usuario'}
+  }
+  lsSet('satel_usuario',JSON.stringify({n:n,e:e}));
+}
+function bienvenida(){
+  var u=usuarioGuardado(),primera=!lsGet('satel_visto'),reducido=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  lsSet('satel_visto','1');
+  var t=el('div','toast');t.setAttribute('role','status');
+  t.appendChild(el('span','toast-ico','👋'));
+  var tx=el('div','toast-tx'),sub=el('p');
+  if(primera){tx.appendChild(el('b','','¡Bienvenido a Celulares Satel!'));sub.textContent='Es tu primera visita. Mirá las novedades y ofertas de hoy.'}
+  else if(u){
+    tx.appendChild(el('b','','¡Bienvenido de nuevo, '+u.n+'!'));sub.appendChild(document.createTextNode('Qué bueno verte otra vez. '));
+    var no=el('button','toast-link','¿No sos vos?');no.type='button';
+    no.addEventListener('click',function(){lsSet('satel_usuario',null);cerrar()});sub.appendChild(no);
+  }else{
+    tx.appendChild(el('b','','¡Bienvenido, desconocido!'));sub.appendChild(document.createTextNode('Todavía no sabemos quién sos. '));
+    var r=el('a','','Registrate');r.href='#/registro';var i=el('a','','ingresá');i.href='#/ingreso';
+    sub.appendChild(r);sub.appendChild(document.createTextNode(' o '));sub.appendChild(i);sub.appendChild(document.createTextNode(' para tener tu cuenta.'));
+  }
+  tx.appendChild(sub);t.appendChild(tx);
+  var x=el('button','toast-x','×');x.type='button';x.setAttribute('aria-label','Cerrar');t.appendChild(x);
+  var barra=el('span','toast-barra');t.appendChild(barra);
+  document.body.appendChild(t);
+  function cerrar(){if(t.classList.contains('sale'))return;t.classList.add('sale');setTimeout(function(){if(t.parentNode)t.parentNode.removeChild(t)},450)}
+  x.addEventListener('click',cerrar);
+  t.addEventListener('click',function(e){if(e.target.closest&&e.target.closest('a'))cerrar()});
+  if(reducido)setTimeout(cerrar,7000);else barra.addEventListener('animationend',cerrar);
+}
+function puerta(alTerminar){
+  var g=el('div','gate'),c=el('div','gate-card'),mov=0,t0=Date.now(),evs=['pointerdown','pointermove','keydown','touchstart','wheel'];
+  g.setAttribute('role','dialog');g.setAttribute('aria-modal','true');g.setAttribute('aria-label','Verificación');
+  var im=el('img');im.alt='Celulares Satel';im.src=document.querySelector('.logo img').src;c.appendChild(im);
+  c.appendChild(el('h2','','Un momento…'));
+  c.appendChild(el('p','','Verificamos que seas una persona antes de entrar.'));
+  var b=el('button','gate-chk');b.type='button';b.innerHTML='<span class="gate-caja"></span><span>No soy un robot</span>';
+  var msg=el('p','gate-msg');msg.setAttribute('role','alert');
+  c.appendChild(b);c.appendChild(msg);g.appendChild(c);document.body.appendChild(g);
+  document.body.style.overflow='hidden';
+  function seña(){mov++}
+  evs.forEach(function(ev){window.addEventListener(ev,seña,{passive:true})});
+  function salir(){
+    evs.forEach(function(ev){window.removeEventListener(ev,seña)});
+    lsSet('satel_humano',String(Date.now()));
+    g.classList.add('sale');
+    setTimeout(function(){if(g.parentNode)g.parentNode.removeChild(g);document.body.style.overflow='';setTimeout(alTerminar,250)},400);
+  }
+  b.addEventListener('click',function(e){
+    if(b.classList.contains('cargando')||b.classList.contains('listo'))return;
+    b.classList.add('cargando');
+    setTimeout(function(){
+      b.classList.remove('cargando');
+      if(e.isTrusted&&mov>0&&Date.now()-t0>700){b.classList.add('listo');setTimeout(salir,700);return}
+      // No se pudo comprobar solo: pedimos resolver una cuenta
+      b.style.display='none';
+      msg.textContent='No pudimos verificarlo automáticamente. Resolvé esta cuenta:';
+      var d=el('div','anti');d.id='aGate';c.appendChild(d);
+      var AB=antiBot(null,'aGate',true),ok=el('button','carro','Verificar');ok.type='button';ok.style.marginTop='12px';
+      ok.addEventListener('click',function(ev){var r=AB.check(ev);if(r){msg.textContent=r}else{ok.disabled=true;msg.textContent='';salir()}});
+      c.appendChild(ok);
+    },1100);
+  });
+  b.focus();
+}
+(function(){
+  var t=parseInt(lsGet('satel_humano'),10);
+  if(t&&Date.now()-t<86400000)setTimeout(bienvenida,500);
+  else puerta(bienvenida);
+})();
 </script>
 </body>
 </html>

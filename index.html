@@ -331,6 +331,59 @@ footer ul a:hover{transform:translateX(5px)}
 @keyframes a-barra{to{transform:scaleX(0)}}
 .toast:hover .toast-barra{animation-play-state:paused}
 
+
+/* AI Satel (chat de soporte) */
+.ai-fab{position:fixed;right:18px;bottom:18px;z-index:150;display:flex;align-items:center;gap:8px;border:0;background:var(--rojo);color:#fff;font:inherit;font-weight:800;padding:13px 18px;border-radius:40px;box-shadow:0 8px 24px rgba(215,25,31,.45);cursor:pointer;animation:a-pop .6s 1s backwards,a-pulso 2.6s 2s infinite;transition:transform .2s,background .2s}
+.ai-fab:hover{background:var(--rojo-oscuro);transform:translateY(-3px)}
+.ai-fab:active{transform:scale(.95)}
+.ai-fab.oculto{display:none}
+.ai-ico{font-size:1.3rem;line-height:1}
+@keyframes a-pulso{0%,100%{box-shadow:0 8px 24px rgba(215,25,31,.45),0 0 0 0 rgba(215,25,31,.5)}50%{box-shadow:0 8px 24px rgba(215,25,31,.45),0 0 0 14px rgba(215,25,31,0)}}
+.ai-hint{position:fixed;right:20px;bottom:78px;z-index:150;background:#fff;border:2px solid var(--rojo);border-radius:14px 14px 4px 14px;padding:10px 14px;font-weight:700;box-shadow:0 10px 26px rgba(0,0,0,.2);cursor:pointer;animation:a-subir .5s backwards;max-width:230px}
+.ai-panel{position:fixed;right:18px;bottom:18px;z-index:160;width:min(94vw,380px);height:min(78vh,560px);background:#fff;border-radius:16px;box-shadow:0 20px 50px rgba(0,0,0,.35);display:flex;flex-direction:column;overflow:hidden;transform-origin:bottom right;animation:a-abre .35s cubic-bezier(.2,.9,.3,1.1)}
+.ai-panel[hidden]{display:none}
+.ai-panel.cierra{animation:a-cierra .25s ease forwards}
+@keyframes a-abre{from{opacity:0;transform:scale(.6) translateY(30px)}to{opacity:1;transform:none}}
+@keyframes a-cierra{to{opacity:0;transform:scale(.7) translateY(30px)}}
+.ai-head{background:var(--rojo);color:#fff;display:flex;align-items:center;gap:12px;padding:14px 16px}
+.ai-head>div:nth-child(2){flex:1;line-height:1.25}
+.ai-head small{display:flex;align-items:center;gap:6px}
+.ai-av{width:40px;height:40px;border-radius:50%;background:#fff;color:var(--rojo);display:grid;place-items:center;font-weight:800}
+.ai-on{width:9px;height:9px;border-radius:50%;background:#5dff8b;display:inline-block;animation:a-latido 1.6s infinite}
+.ai-x{border:0;background:none;color:#fff;font-size:1.6rem;cursor:pointer;line-height:1;transition:transform .2s}
+.ai-x:hover{transform:rotate(90deg)}
+.ai-msgs{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px;background:#faf7f7;scroll-behavior:smooth}
+.ai-m{max-width:88%;padding:10px 13px;border-radius:14px;font-size:.95rem;line-height:1.4;overflow-wrap:anywhere;animation:a-item .3s ease backwards}
+.ai-m>*+*{margin-top:8px}
+.ai-bot{align-self:flex-start;background:#fff;border:1px solid var(--linea);border-bottom-left-radius:4px}
+.ai-yo{align-self:flex-end;background:var(--rojo);color:#fff;border-bottom-right-radius:4px}
+.ai-m small{display:block;color:var(--gris)}
+.ai-typing{display:flex;gap:5px;padding:14px}
+.ai-typing i{width:8px;height:8px;border-radius:50%;background:#bbb;animation:a-punto 1s infinite}
+.ai-typing i:nth-child(2){animation-delay:.15s}
+.ai-typing i:nth-child(3){animation-delay:.3s}
+@keyframes a-punto{0%,60%,100%{transform:translateY(0);opacity:.5}30%{transform:translateY(-6px);opacity:1}}
+.ai-chips{display:flex;gap:8px;overflow-x:auto;padding:8px 12px;border-top:1px solid var(--linea);scrollbar-width:none}
+.ai-chips::-webkit-scrollbar{display:none}
+.ai-chips button{flex:none;border:1.5px solid var(--rojo);background:#fff;color:var(--rojo);font:inherit;font-size:.85rem;font-weight:700;border-radius:20px;padding:6px 12px;cursor:pointer;transition:background .2s,color .2s,transform .2s}
+.ai-chips button:hover{background:var(--rojo);color:#fff;transform:translateY(-2px)}
+.ai-form{display:flex;gap:8px;padding:10px 12px;border-top:1px solid var(--linea)}
+.ai-form input{flex:1;font:inherit;padding:10px 14px;border:2px solid #d5d5d5;border-radius:22px;min-width:0;transition:border-color .2s,box-shadow .2s}
+.ai-form input:focus{outline:none;border-color:var(--rojo);box-shadow:0 0 0 3px var(--rojo-claro)}
+.ai-form button{border:0;background:var(--rojo);color:#fff;width:42px;height:42px;border-radius:50%;font-size:1.1rem;cursor:pointer;transition:transform .2s,background .2s}
+.ai-form button:hover{background:var(--rojo-oscuro);transform:scale(1.08)}
+.ai-acts{display:flex;flex-wrap:wrap;gap:6px}
+.ai-btn,.ai-m .wapps a.carro{display:inline-block;background:var(--rojo);color:#fff;text-decoration:none;font-weight:700;font-size:.85rem;border-radius:16px;padding:6px 12px;box-shadow:none;transition:background .2s,transform .2s}
+.ai-btn:hover,.ai-m .wapps a.carro:hover{background:var(--rojo-oscuro);transform:translateY(-2px)}
+.ai-m .wapps{margin-top:8px;gap:6px}
+.ai-prod{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--tinta);border:1px solid var(--linea);border-radius:10px;padding:6px;background:#fff;transition:border-color .2s,transform .2s}
+.ai-prod:hover{border-color:var(--rojo);transform:translateX(4px)}
+.ai-prod img{width:46px;height:46px;object-fit:contain;flex:none}
+.ai-prod-t{display:flex;flex-direction:column;line-height:1.25;min-width:0}
+.ai-prod-t b{font-size:.88rem}
+.ai-prod-t small{color:var(--rojo);font-weight:800}
+@media (max-width:480px){.ai-panel{right:8px;bottom:8px;width:calc(100vw - 16px);height:min(82vh,560px)}.ai-lbl{display:none}.ai-fab{padding:14px}}
+
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{animation:none!important;transition:none!important}
@@ -874,9 +927,13 @@ function buscarPag(home,pg){
   var pie=el('div','pie-cat');var a=el('a','carro','Buscar “'+Q+'” en la tienda online');a.href=real;a.target='_blank';a.rel='noopener';pie.appendChild(a);pg.appendChild(pie);
   document.title='Búsqueda: '+Q+' | Celulares Satel';window.scrollTo(0,0);
 }
-document.getElementById('formBuscar').addEventListener('submit',function(e){
-  e.preventDefault();var v=this.querySelector('input').value.trim();if(!v)return;Q=v;ir('buscar');
-});
+(function(){
+  var fm=document.getElementById('formBuscar'),inp=fm.querySelector('input'),bt=fm.querySelector('button');
+  function buscarYa(){var v=inp.value.trim();if(!v)return;Q=v;var s=document.getElementById('sug');if(s)s.hidden=true;ir('buscar')}
+  fm.addEventListener('submit',function(e){e.preventDefault();buscarYa()});
+  bt.addEventListener('click',function(e){e.preventDefault();buscarYa()});
+  inp.addEventListener('keydown',function(e){if((e.key==='Enter'||e.keyCode===13)&&!e.isComposing){e.preventDefault();buscarYa()}});
+})();
 
 // ===== Páginas propias de productos =====
 function slug_(s){return norm(s).replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')}
@@ -1165,6 +1222,265 @@ function puerta(alTerminar){
   if(t&&Date.now()-t<86400000)setTimeout(bienvenida,500);
   else puerta(bienvenida);
 })();
+
+// ===== AI Satel: asistente de soporte (chat abajo a la derecha) =====
+(function(){
+  var STOP=('hola ola hey buenas buen dia dias tarde tardes noche noches quiero busco necesito tenes tienen tiene hay precio precios cuanto cuesta sale vale comprar para por con sin una uno unos unas los las del que como favor podes pueden decime dame ver mostrame algun alguna algo cual cuales esta estan de el la en mi es se me te lo al un su yo tu mas muy ya si sos soy eso esto hacer hago puedo puede queria quisiera tengo estoy no ni sus tus les nos').split(' ');
+  function stem(w){if(w.length>5&&/(ores|ares|ales|ones)$/.test(w))return w.slice(0,-2);return w.length>3&&w.slice(-1)==='s'?w.slice(0,-1):w}
+  function tokens(t){return norm(t).replace(/[^a-z0-9 ]/g,' ').split(/\s+/).filter(function(w){return w.length>1&&STOP.indexOf(w)<0}).map(stem)}
+  function lev(a,b){var m=a.length,n=b.length,d=[],i,j;for(i=0;i<=m;i++)d[i]=[i];for(j=1;j<=n;j++)d[0][j]=j;for(i=1;i<=m;i++)for(j=1;j<=n;j++)d[i][j]=Math.min(d[i-1][j]+1,d[i][j-1]+1,d[i-1][j-1]+(a.charAt(i-1)===b.charAt(j-1)?0:1));return d[m][n]}
+  // "se parece": mismas palabras, errores de tipeo o palabras que empiezan igual (auri ~ auricular)
+  function cerca(a,b){
+    if(a===b)return true;
+    var la=a.length,lb=b.length,mn=Math.min(la,lb);
+    if(mn<4)return false;
+    if(Math.abs(la-lb)<=5&&(a.indexOf(b)===0||b.indexOf(a)===0))return true;
+    if(mn<5||a.charAt(0)!==b.charAt(0))return false;
+    return lev(a,b)<=(Math.max(la,lb)>=8?2:1);
+  }
+  // más estricta: solo mismas palabras o un error de tipeo
+  function igual(a,b){return a===b||(Math.min(a.length,b.length)>=5&&a.charAt(0)===b.charAt(0)&&lev(a,b)<=1)}
+  function gm(q){return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(q)}
+  function ws(s){return s.split(' ').filter(Boolean).map(stem)}
+
+  // Relaciones: lo que dice la persona -> qué productos le sirven
+  var REL=[
+   {k:'cargar carga cargando cargarlo enchufe corriente energia fuente descarga',f:['sin bateria','poca bateria','mala bateria','se descarga','dura poco','se queda sin'],d:'bateria',x:'cargador cable',i:'Para cargar tu celular te pueden servir:'},
+   {k:'escuchar musica sonido audio oir cancion canciones',x:'auricular parlante',i:'Para escuchar música tenemos:'},
+   {k:'auris audifono audifonos casco cascos headphones',x:'auricular',i:'Estos son nuestros auriculares:'},
+   {k:'proteger proteccion rayar rayon golpe golpes cuidar romper rompa',x:'protector vidrio funda',i:'Para proteger tu celular:'},
+   {k:'auto manejar manejando ruta viaje gps coche',x:'soporte auto',i:'Para usar el celular en el auto:'},
+   {k:'bici bicicleta ciclismo correr running trotar deporte gimnasio',x:'bici brazalete soporte',i:'Para andar en bici o salir a correr:'},
+   {k:'jugar juego juegos play playstation ps5 ps4 consola gamer joystick',x:'joystick ps5 ps4 consola gamer',i:'Para jugar:'},
+   {k:'tele tv televisor pelicula peliculas serie series futbol partido netflix',x:'tv stick chromecast',i:'Para ver tele, series o fútbol:'},
+   {k:'perder perdi rastrear rastreo llaves mochila ubicar localizar',x:'airtag',i:'Para no perder tus cosas:'},
+   {k:'inflar rueda ruedas neumatico cubierta pinchadura',x:'compresor',i:'Para inflar:'},
+   {k:'smartphone nuevo equipo gama',f:['un celular','celular nuevo','comprar celular','un celu','un telefono','celu nuevo'],x:'samsung motorola xiaomi galaxy redmi moto equipo',i:'Estos son nuestros equipos:'},
+   {k:'apple iphone ios',x:'iphone lightning',i:'Para tu iPhone:'},
+   {k:'moto',x:'motorola',i:null},
+   {k:'cordon usb',x:'cable',i:null},
+   {k:'agua mojado mojar lluvia sumergible pileta playa',x:'sumergible funda agua',i:'Para cuidarlo del agua:'},
+   {k:'regalo regalar cumple cumpleanos',x:'airtag auricular parlante joystick',i:'Algunas ideas para regalar:'},
+   {k:'viajar viaje exterior enchufes',x:'adaptador viaje enchufe',i:'Para viajar o conectar varios aparatos:'},
+   {k:'proyectar hdmi',x:'hdmi chromecast',i:null},
+   {k:'camara foto fotos',x:'camara protector',i:null}
+  ].map(function(r){return {k:ws(r.k),x:ws(r.x),i:r.i,f:r.f||[],d:ws(r.d||'')}});
+
+  // Temas de soporte: palabras sueltas y frases
+  var INT=[
+   {n:'ident',k:'',f:['quien sos','que sos','como te llamas','sos un robot','sos una ia','sos humano','sos real','sos una persona','que podes hacer','en que me podes ayudar','que haces','para que servis','eres un robot','eres humano','con quien hablo']},
+   {n:'humano',k:'humano asesor vendedor agente operador',f:['hablar con una persona','con una persona','con alguien','persona real','persona del equipo','atencion al cliente','que me atienda']},
+   {n:'horario',k:'horario hora abren abrir cierran cerrar atienden atencion abierto',f:['a que hora']},
+   {n:'ubicacion',k:'donde direccion ubicacion ubicado local sucursal mapa llegar queda zona barrio',f:['como llego']},
+   {n:'contacto',k:'whatsapp wasap telefono numero llamar contacto contactar comunicar',f:[]},
+   {n:'envio',k:'envio enviar despacho domicilio andreani entrega entregan delivery cadete',f:[]},
+   {n:'pago',k:'pago pagar tarjeta cuota transferencia efectivo debito credito mercadopago',f:['mercado pago','medios de pago','formas de pago']},
+   {n:'devolucion',k:'devolucion devolver cambio cambiar garantia reclamo defectuoso',f:[]},
+   {n:'cuenta',k:'registrar registro registrarme cuenta crear ingresar ingreso sesion contrasena clave password usuario login',f:['olvide mi','no puedo entrar']},
+   {n:'servicio',k:'reparacion reparar arreglo arreglar tecnico flashear flasheo software desbloquear roto rota rompi rompio falla',f:['servicio tecnico','pantalla rota','no carga','no me carga','no prende','no me prende','no funciona','no me anda','no anda','no responde','no enciende','se rompio','me rompio','se mojo','se me mojo','me mojo','se cayo','me cayo','cayo al agua','pin de carga','se trabo','me trabo','se tilda','se cuelga','pantalla negra','no suena','no se escucha']},
+   {n:'ofertas',k:'oferta promo promocion descuento barato rebaja liquidacion',f:[]},
+   {n:'categorias',k:'categoria catalogo',f:['que venden','que tienen','que productos','que ofrecen']},
+   {n:'vacia',k:'memoria pendrive almacenamiento reloj smartwatch pulsera',f:['tarjeta sd','micro sd']}
+  ].map(function(i){return {n:i.n,k:ws(i.k),f:i.f}});
+
+  CATP.forEach(function(x){x.t=tokens(x.p[0]+' '+x.c)});
+  function consulta(toks,n){
+    var rel=[],intro=null,best=0,drop=[];
+    REL.forEach(function(r){
+      var hits=0;
+      toks.forEach(function(w){if(r.k.some(function(k){return igual(w,k)}))hits++});
+      r.f.forEach(function(f){if(n.indexOf(f)>-1)hits+=2});
+      if(hits){
+        r.x.forEach(function(w){rel.push({w:w,wt:hits})});
+        r.d.forEach(function(w){drop.push(w)});
+        if(r.i&&hits>best){best=hits;intro=r.i}
+      }
+    });
+    return {dir:toks.filter(function(w){return drop.indexOf(w)<0}),rel:rel,intro:intro};
+  }
+  function puntuar(q){
+    var res=[];
+    CATP.forEach(function(x){
+      var d=0,s=0;
+      q.dir.forEach(function(w){if(x.t.some(function(k){return cerca(w,k)}))d+=2});
+      q.rel.forEach(function(r){if(x.t.some(function(k){return cerca(r.w,k)}))s+=r.wt});
+      s+=d;
+      if(x.cs==='servicio-tecnico')s-=0.5;
+      if(s>0)res.push({x:x,s:s,d:d});
+    });
+    res.sort(function(a,b){return b.s-a.s});
+    return res;
+  }
+  function diversos(res,n){
+    var out=[],cs={};
+    res.forEach(function(r){if(out.length<n&&!cs[r.x.cs]){cs[r.x.cs]=1;out.push(r.x.p)}});
+    res.forEach(function(r){if(out.length<n&&out.indexOf(r.x.p)<0)out.push(r.x.p)});
+    return out;
+  }
+
+  var fab=el('button','ai-fab');fab.type='button';fab.setAttribute('aria-label','Abrir chat con AI Satel');
+  fab.innerHTML='<span class="ai-ico">💬</span><span class="ai-lbl">AI Satel</span>';
+  var panel=el('div','ai-panel');panel.hidden=true;panel.setAttribute('role','dialog');panel.setAttribute('aria-label','Chat con AI Satel');
+  panel.innerHTML='<div class="ai-head"><div class="ai-av">AI</div><div><b>AI Satel</b><small><i class="ai-on"></i>En línea · Soporte</small></div><button type="button" class="ai-x" aria-label="Cerrar chat">×</button></div>'
+    +'<div class="ai-msgs" aria-live="polite"></div><div class="ai-chips"></div>'
+    +'<div class="ai-form"><input type="text" maxlength="200" autocomplete="off" placeholder="Escribí tu consulta…" aria-label="Mensaje"><button type="button" aria-label="Enviar">➤</button></div>';
+  document.body.appendChild(panel);document.body.appendChild(fab);
+  var msgs=panel.querySelector('.ai-msgs'),chips=panel.querySelector('.ai-chips'),form=panel.querySelector('.ai-form'),inp=form.querySelector('input'),saludado=false,hint=null;
+
+  function bajar(){msgs.scrollTop=msgs.scrollHeight}
+  function burbuja(q){var m=el('div','ai-m ai-'+q);msgs.appendChild(m);bajar();return m}
+  function yo(t){burbuja('yo').textContent=t}
+  function decir(t,fn,demora){
+    var ty=burbuja('bot');ty.classList.add('ai-typing');ty.innerHTML='<i></i><i></i><i></i>';
+    setTimeout(function(){
+      if(ty.parentNode)ty.parentNode.removeChild(ty);
+      var m=burbuja('bot');
+      if(t)m.appendChild(el('p','',t));
+      if(fn)fn(m);
+      bajar();
+    },demora||(500+Math.min((t||'').length*8,700)));
+  }
+  function botones(m,lista){
+    var d=el('div','ai-acts');
+    lista.forEach(function(x){var a=el('a','ai-btn',x[0]);a.href=x[1];if(x[1].charAt(0)!=='#'){a.target='_blank';a.rel='noopener'}d.appendChild(a)});
+    m.appendChild(d);
+  }
+  function minis(m,items){
+    items.forEach(function(p){
+      var a=el('a','ai-prod');a.href='#/producto/'+pslug(p);
+      var im=el('img');im.alt='';im.referrerPolicy='no-referrer';im.src=p[1];im.onerror=function(){im.style.visibility='hidden'};
+      var t=el('span','ai-prod-t');t.appendChild(el('b','',p[0]));t.appendChild(el('small','',fmt(p[2])));
+      a.appendChild(im);a.appendChild(t);m.appendChild(a);
+    });
+  }
+  function wa(m,txt){m.appendChild(wapps(txt))}
+
+  var ctx={lista:[],vistos:[],ult:null,hint:false};
+  function lista(items,msg,todos,demora){
+    ctx.lista=todos||items;ctx.vistos=items.slice();ctx.ult=items[0];
+    decir(msg,function(m){
+      minis(m,items);
+      m.appendChild(el('small','','Precios y stock: confirmalos por WhatsApp.'+(ctx.hint?'':' Podés pedirme "el más barato" u "otras opciones".')));
+      ctx.hint=true;
+    },demora);
+  }
+  var H={
+    ident:function(){decir('Soy AI Satel, el asistente virtual de Celulares Satel. No soy una persona: respondo de forma automática con la información de esta página. Podés escribirme con tus palabras, por ejemplo "algo para escuchar música" o "se me rompió la pantalla", y si hace falta te paso con una persona por WhatsApp.',function(m){wa(m,'Hola! Vengo de la web y quiero hablar con una persona.')})},
+    humano:function(){decir('Dale, te paso con una persona del equipo. Elegí el WhatsApp que prefieras:',function(m){wa(m,'Hola! Vengo de la web y quiero hablar con una persona.')})},
+    horario:function(){decir('Atención en el local: lunes a viernes de 9:30 a 13:00 y de 15:00 a 19:00 hs.',function(m){m.appendChild(el('small','','Si necesitás confirmar el horario de un local en particular, escribinos por WhatsApp.'));wa(m,'Hola! Quiero consultar el horario de atención.')})},
+    ubicacion:function(){decir('Tenemos dos locales:',function(m){
+      m.appendChild(el('p','','📍 Celulares Satel Urquiza: Av. Juramento 4974, C1431CKJ, Buenos Aires.'));
+      m.appendChild(el('p','','📍 Celulares Satel: Av. Segurola 3295, Villa Devoto.'));
+      botones(m,[['Mapa Urquiza',gm('Av. Juramento 4974, C1431CKJ Buenos Aires, Argentina')],['Mapa Villa Devoto',gm('Av. Segurola 3295, Buenos Aires, Argentina')],['Ver contacto','#/contacto']]);
+    })},
+    contacto:function(){decir('Podés escribirnos o llamarnos:',function(m){m.appendChild(el('p','','📞 11 2770-2147 · 11 2691-9440'));wa(m,'Hola! Vengo de la web y tengo una consulta.')})},
+    envio:function(){decir('Los envíos y las condiciones de pago están explicados en la tienda. Para coordinar tu caso, escribinos por WhatsApp.',function(m){botones(m,[['Envíos y pagos','http://celulares-satel.com.ar/envios-y-condiciones-de-pago']]);wa(m,'Hola! Quiero consultar por envíos y formas de pago.')})},
+    devolucion:function(){decir('Podés ver la política de devolución acá. Para garantía o un reclamo puntual, escribinos con tu pedido a mano.',function(m){botones(m,[['Política de devolución','http://celulares-satel.com.ar/pol%C3%ADtica-de-devolucion']]);wa(m,'Hola! Tengo una consulta por una devolución o garantía.')})},
+    cuenta:function(){decir('Con tu cuenta podés guardar favoritos y ver tus pedidos. ¿Qué necesitás?',function(m){botones(m,[['Crear cuenta','#/registro'],['Ingresar','#/ingreso'],['Olvidé mi contraseña','https://celulares-satel.com.ar/olvidada']])})},
+    servicio:function(t){decir('Tenemos servicio técnico especializado, con más de 20 años en el rubro. Esto es lo que ofrecemos; para un presupuesto escribinos por WhatsApp:',function(m){minis(m,CP['servicio-tecnico'].items);wa(m,'Hola! Quiero consultar por una reparación: '+t)})},
+    ofertas:function(){
+      var todas=CATP.filter(function(x){return x.p[3]}).map(function(x){return x.p}),of=todas.slice(0,4);
+      ctx.lista=todas;ctx.vistos=of.slice();ctx.ult=of[0];
+      decir('Estas son algunas ofertas con precio rebajado:',function(m){minis(m,of);m.appendChild(el('small','','Precios y stock pueden cambiar: confirmalos por WhatsApp.'));botones(m,[['Ver todas las ofertas','http://celulares-satel.com.ar/ofertas']])});
+    },
+    categorias:function(){decir('Estas son nuestras categorías:',function(m){botones(m,CATS.map(function(c){return [c[0],'#/'+c[2]]}))})},
+    vacia:function(t){decir('Esa categoría no tiene productos cargados en la página por ahora, pero puede que tengamos en el local. Consultalo por WhatsApp:',function(m){wa(m,'Hola! Quiero consultar por: '+t)})}
+  };
+  H.pago=H.envio;
+
+  function mostrarRes(res,q){
+    var todos=res.slice(0,12).map(function(r){return r.x.p}),uw={};
+    q.rel.forEach(function(r){uw[r.w]=1});
+    if(q.intro&&res[0].d<4){var fuertes=res.filter(function(r){return r.s>res[0].s*0.7});return lista(Object.keys(uw).length>1?diversos(fuertes,4):todos.slice(0,4),q.intro,todos)}
+    lista(todos.slice(0,3),res[0].s>=2?'Encontré esto:':'Esto es lo más parecido que encontré:',todos);
+  }
+
+  function responder(t){
+    var n=' '+norm(t).replace(/[^a-z0-9 ]/g,' ').replace(/\s+/g,' ').trim()+' ',toks=tokens(t);
+    var q=consulta(toks,n),res=puntuar(q),ps=res.length?res[0].s:0,best=null,bs=0;
+    INT.forEach(function(i){
+      var s=0;
+      i.k.forEach(function(k){if(toks.some(function(w){return igual(w,k)}))s+=2});
+      i.f.forEach(function(f){if(n.indexOf(f)>-1)s+=5});
+      if(s>bs){bs=s;best=i}
+    });
+
+    // Seguimiento de lo que ya mostré ("el más barato", "otras opciones", "cuánto sale")
+    if(ctx.lista.length||ps>=2){
+      var maxD=res.reduce(function(a,r){return Math.max(a,r.d)},0),barato=/(barat|economic|menor precio|mas bajo)/.test(n),caro=/(mas car|premium|mejor calidad|el mejor|la mejor)/.test(n);
+      if((barato||caro)&&(ps>=2||ctx.lista.length)){
+        var base=(ps>=2?res.filter(function(r){return r.d>=maxD}).slice(0,12).map(function(r){return r.x.p}):ctx.lista).filter(function(p){return num(p[2])>0});
+        if(base.length){
+          base=base.slice().sort(function(a,b){return num(a[2])-num(b[2])});
+          var p1=barato?base[0]:base[base.length-1];ctx.ult=p1;
+          return decir(barato?'El más económico es:':'El de mayor precio es:',function(m){minis(m,[p1]);botones(m,[['Ver producto','#/producto/'+pslug(p1)]])});
+        }
+      }
+    }
+    if(ctx.lista.length&&ps<2){
+      if(toks.length<=2&&/( otros | otras | otro | otra |mas opciones|mas productos|que mas|algo mas|ver mas| mas |siguiente)/.test(n)){
+        var resto=ctx.lista.filter(function(p){return ctx.vistos.indexOf(p)<0}).slice(0,3);
+        if(!resto.length)return decir('Eso es todo lo que encontré por ahora. Si buscás algo puntual, escribinos por WhatsApp:',function(m){wa(m,'Hola! Estoy buscando algo puntual en la web.')});
+        ctx.vistos=ctx.vistos.concat(resto);ctx.ult=resto[0];
+        return decir('Mirá estas otras opciones:',function(m){minis(m,resto)});
+      }
+      if(ctx.ult&&bs<2&&toks.length<=3&&/( ese | esa | eso |el primero|la primera|cuanto sale|cuanto cuesta|cuanto vale|precio|lo quiero|me interesa|comprar|como lo compro|lo llevo)/.test(n)){
+        var p2=ctx.ult;
+        return decir(p2[0]+(num(p2[2])?' sale '+fmt(p2[2])+'.':': consultá el precio.')+' Podés verlo en su página o comprarlo en la tienda online.',function(m){
+          minis(m,[p2]);botones(m,[['Ver producto','#/producto/'+pslug(p2)],['Comprar en la tienda',p2[4]]]);
+          wa(m,'Hola! Quiero consultar por: '+p2[0]+(p2[2]?' ('+fmt(p2[2])+')':''));
+        });
+      }
+    }
+
+    if(!toks.length){
+      if(/ (hola|ola|hey|buenas|buen dia|buenos dias) /.test(n)){var u=usuarioGuardado();return decir('¡Hola'+(u?', '+u.n:'')+'! ¿En qué te puedo ayudar?',null,500)}
+      return decir('Contame qué necesitás con tus palabras y te ayudo. Por ejemplo: "busco algo para cargar el celular" o "¿a qué hora abren?".',null,500);
+    }
+    if(toks.length<=2&&/ (gracias|chau|adios|genial|perfecto|buenisimo|excelente|joya) /.test(n))return decir('¡De nada! Si necesitás algo más, acá estoy. 😊');
+
+    if(best&&bs>=2&&bs>=ps){
+      H[best.n](t);
+      if(bs===ps&&res.length&&/^(envio|pago|devolucion)$/.test(best.n))lista(res.slice(0,3).map(function(r){return r.x.p}),'Y sobre el producto que mencionás:',res.slice(0,12).map(function(r){return r.x.p}),2400);
+      return;
+    }
+    if(res.length)return mostrarRes(res,q);
+    decir('No estoy seguro de haber entendido, pero puedo ayudarte con productos, precios, horarios, ubicación, tu cuenta o servicio técnico. Probá contarme qué necesitás con tus palabras (por ejemplo "algo para escuchar música" o "se me rompió la pantalla"), o hablá con una persona:',function(m){
+      botones(m,[['Ver categorías','#/'],['Contacto','#/contacto']]);wa(m,'Hola! Vengo de la web. Mi consulta: '+t);
+    });
+  }
+
+  function enviar(t){yo(t);responder(t)}
+  ['Horarios','¿Dónde están?','Ofertas','Servicio técnico','Cargadores','Fundas','Hablar con una persona'].forEach(function(c){
+    var b=el('button','',c);b.type='button';b.addEventListener('click',function(){enviar(c)});chips.appendChild(b);
+  });
+  function mandar(){var t=inp.value.trim();if(!t)return;inp.value='';enviar(t);inp.focus()}
+  form.querySelector('button').addEventListener('click',mandar);
+  inp.addEventListener('keydown',function(e){if((e.key==='Enter'||e.keyCode===13)&&!e.isComposing){e.preventDefault();mandar()}});
+
+  function quitarHint(){if(hint&&hint.parentNode)hint.parentNode.removeChild(hint);hint=null}
+  function abrir(){
+    panel.hidden=false;panel.classList.remove('cierra');fab.classList.add('oculto');quitarHint();
+    if(!saludado){
+      saludado=true;var u=usuarioGuardado();
+      decir('¡Hola'+(u?', '+u.n:'')+'! Soy AI Satel, el asistente virtual de Celulares Satel. Escribime con tus palabras lo que necesitás, por ejemplo: "algo para escuchar música" o "se me rompió la pantalla". Puedo ayudarte con productos, precios, horarios, ubicación, tu cuenta y servicio técnico.',null,600);
+    }
+    setTimeout(function(){inp.focus()},300);
+  }
+  function cerrar(){panel.classList.add('cierra');setTimeout(function(){panel.hidden=true;panel.classList.remove('cierra');fab.classList.remove('oculto')},250)}
+  fab.addEventListener('click',abrir);
+  panel.querySelector('.ai-x').addEventListener('click',cerrar);
+  panel.addEventListener('keydown',function(e){if(e.key==='Escape')cerrar()});
+  panel.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href^="#/"]');if(a&&innerWidth<600)cerrar()});
+  // Aviso suave la primera vez que se entra en la sesión
+  var vio=false;try{vio=sessionStorage.getItem('satel_hint')}catch(x){}
+  if(!vio)setTimeout(function(){
+    if(!panel.hidden||document.querySelector('.gate'))return;
+    try{sessionStorage.setItem('satel_hint','1')}catch(x){}
+    hint=el('div','ai-hint','¿Necesitás ayuda? Escribile a AI Satel 👋');hint.addEventListener('click',abrir);document.body.appendChild(hint);
+    setTimeout(quitarHint,8000);
+  },9000);
+})();
 </script>
 </body>
-</html>
+                                                                    </html>
